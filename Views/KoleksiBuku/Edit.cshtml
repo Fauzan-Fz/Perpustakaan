@@ -1,0 +1,49 @@
+﻿@model Perpustakaan.Models.KoleksiBuku
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>KoleksiBuku</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Judul" class="control-label"></label>
+                <input asp-for="Judul" class="form-control" />
+                <span asp-validation-for="Judul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PenulisId" class="control-label"></label>
+                <select asp-for="PenulisId" class="form-control" asp-items="ViewBag.PenulisId"></select>
+                <span asp-validation-for="PenulisId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenreId" class="control-label"></label>
+                <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+                <span asp-validation-for="GenreId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TahunTerbit" class="control-label"></label>
+                <input asp-for="TahunTerbit" class="form-control" />
+                <span asp-validation-for="TahunTerbit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
